@@ -1,0 +1,14 @@
+Now come up with a game character that will match the style of the world.
+Describe the character in strictly json format. Put this json in your "message" string.
+Json format for character:
+{
+  "name": "any name",
+  "race": "any race",
+  "raceOverview":"",
+  "className": "any class",
+  "classOverview": "",
+  "gender": "gender",
+  "backstory": "some backstory of character"
+}
+You can create a new race that should match the style of the world.  you must describe its in the raceOverview field.
+You can create a new class that should match the style of the world.  you must describe its in the classOverview field.

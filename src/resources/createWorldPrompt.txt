@@ -1,0 +1,7 @@
+Create a world, the style of which will be a world, most of which is water, people and other intelligent beings of this world live on small islands and mostly travel on ships.
+Generate more details for this world and come up with a summary string with Json structure.
+Json structure for world:
+"{
+"worldName": "name of the world",
+"description": "description of the world"
+}".
