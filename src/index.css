@@ -1,0 +1,68 @@
+/* Reset margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set default font for the app */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Style the app container */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Style header */
+header {
+    background-color: #2a9df4;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Style main content */
+main {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+/* Style footer */
+footer {
+    background-color: #333;
+    padding: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Add some space between list items */
+ul {
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Style buttons */
+button {
+    background-color: #2a9df4;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #238ad3;
+}
