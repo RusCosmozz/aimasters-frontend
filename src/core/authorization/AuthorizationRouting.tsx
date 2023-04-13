@@ -11,12 +11,18 @@ interface AuthorizationMapperType {
 
 const authorizationMapper: AuthorizationMapperType[] = [
     { path: AuthorizationRoutesEnum.HOME, element: <LoginPage /> },
-    { path: AuthorizationRoutesEnum.LOGIN, element: <RegisterPage /> },
+    { path: AuthorizationRoutesEnum.LOGIN, element: <LoginPage /> },
     { path: AuthorizationRoutesEnum.REGISTER, element: <RegisterPage /> }
 ];
 
 const AuthorizationRouting = () => {
-    const routes = authorizationMapper.map(route => <Route path={route.path} element={route.element} />);
+    const routes = authorizationMapper.map((route, idx) =>
+        <Route
+            key={`authorization-route-${idx}`}
+            path={route.path}
+            element={route.element}
+        />
+    );
 
     return (
         <BrowserRouter>

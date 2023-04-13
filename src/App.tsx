@@ -1,9 +1,14 @@
 import React from 'react';
-import AuthorizationGate from "./authorization/AuthorizationGate";
+import AuthorizationGate from "./core/authorization/AuthorizationGate";
+import {AppWrapperStyled} from "./core/components/AppWrapper/AppWrapper";
 
 const App = () => {
     return (
-        <AuthorizationGate></AuthorizationGate>
+        <AppWrapperStyled>
+            <AuthorizationGate>
+
+            </AuthorizationGate>
+        </AppWrapperStyled>
     );
 }
 
