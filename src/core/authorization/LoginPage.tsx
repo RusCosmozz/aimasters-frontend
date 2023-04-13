@@ -4,10 +4,16 @@ import Form from "../components/Form/Form";
 import Input from "../components/Input/Input";
 import Button from "../components/Button/Button";
 import {AuthorizationRedirectStyled, AuthorizationWrapperStyled} from "./AuthorizationStyled";
-import {Link} from "react-router-dom";
-import {AuthorizationRoutesEnum} from "../constants/routes";
+import {Link, useNavigate} from "react-router-dom";
+import {Routes} from "../constants/routes";
+import {loginUser} from "./api";
+import {useDispatch} from "react-redux";
+import {setUser, UserStateType} from "../modules/user/slice/userSlice";
 
 const LoginPage = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,33 +28,10 @@ const LoginPage = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        // try {
-        //     const requestBody = JSON.stringify({
-        //         "email": email,
-        //         "password": password,
-        //     });
-        //     console.log("Request body:", requestBody);
-        //     const response = await fetch('http://localhost:8086/api/users/login', {
-        //
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: requestBody,
-        //     });
-        //
-        //     if (!response.ok) {
-        //         throw new Error('Authentication failed');
-        //     }
-        //     const data = await response.json();
-            // Update your application state with the authenticated user data, e.g., save the access token
-            // Navigate to the lobbies page
-            // setUser({ id: data.id, username: data.username});
-            // navigate('/lobbies');
-        // } catch (error) {
-        //     // Handle errors, e.g., show an error message to the user
-        //     console.error('Error during authentication:', error);
-        // }
+        const loginResponse = await loginUser(email, password) as UserStateType;
+
+        dispatch(setUser(loginResponse));
+        navigate(Routes.LOBBIES);
     }
 
     return (
@@ -77,7 +60,7 @@ const LoginPage = () => {
             </Form>
 
             <AuthorizationRedirectStyled>
-                <Link to={AuthorizationRoutesEnum.REGISTER}>register</Link>
+                <Link to={Routes.REGISTER}>register</Link>
             </AuthorizationRedirectStyled>
         </AuthorizationWrapperStyled>
     );

@@ -1,5 +1,8 @@
-export enum AuthorizationRoutesEnum {
+export enum Routes {
     HOME = '/',
+
     LOGIN = "/login",
-    REGISTER = '/register'
+    REGISTER = '/register',
+
+    LOBBIES = '/lobbies',
 }
