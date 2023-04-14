@@ -11,7 +11,6 @@ const App = () => {
         <Provider store={store}>
             <AppWrapperStyled>
                 <AuthorizationGate>
-
                 </AuthorizationGate>
             </AppWrapperStyled>
         </Provider>
